@@ -1,0 +1,46 @@
+run:
+  skip-dirs:
+    - .tmp
+    - vendor
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode
+    # - errcheck
+    - gocritic
+    # - goconst
+    - goimports
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - stylecheck
+    - typecheck
+    - unused
+    - varcheck
+
+linters-settings:
+  govet:
+    # report about shadowed variables
+    check-shadowing: true
+
+issues:
+  exclude-rules:
+    # - path: _test\.go
+    #   linters:
+    #     - goconst
+
+    # False positives on CGO generated code
+    - linters: [staticcheck]
+      text: "SA4000:"
+      path: vips\.go
+
+    # False positives on CGO generated code
+    - linters: [gocritic]
+      text: "dupSubExpr"
+      path: vips\.go
+
+    - linters: [stylecheck]
+      text: "ST1005:"

@@ -1,0 +1,15 @@
+.DS_Store
+.git
+tmp/
+.tmp/
+imgproxy
+
+docs/
+docker/
+examples/
+LICENSE
+README.md
+CHANGELOG.md
+
+Dockerfile
+.dockerignore
